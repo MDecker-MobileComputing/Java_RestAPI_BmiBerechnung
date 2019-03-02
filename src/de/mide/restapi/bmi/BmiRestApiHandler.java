@@ -31,15 +31,18 @@ public class BmiRestApiHandler extends AbstractHandler  {
      * @throws ServletException  Servlet/HTTP-Fehler.
      */
     @Override
-    public void handle(String              target     , 
-                       Request             baseRequest, 
-                       HttpServletRequest  request    , 
-                       HttpServletResponse response) throws IOException, ServletException {
+    public void handle( String              target     , 
+                        Request             baseRequest, 
+                        HttpServletRequest  request    , 
+                        HttpServletResponse response
+                      ) throws IOException, ServletException {
 
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_OK); // HTTP-Antwort-Code 200
         response.getWriter().println("{ \"status\": \"ok\"}");
 
+        // IDEE: JSON-Dokument mit Jackson erzeugen ( https://wilddiary.com/serialize-java-objects-json-back/ )
+        
         baseRequest.setHandled(true);
     }    
 

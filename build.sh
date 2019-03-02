@@ -4,7 +4,7 @@
 
 KLASSENPFAD=classes:lib/jetty-all-9.4.9.jar
 
-# Sicherstellen, dass Ausgabe-Verz vorhanden
+# Sicherstellen, dass Ausgabe-Verzeichnis fuer Compiler existiert
 mkdir -p classes
 # -p: Keinen Fehler ausgeben, wenn das Verzeichnis schon existiert
 
