@@ -18,19 +18,25 @@ public class BmiRestApiHandler extends AbstractHandler  {
     /**
      * Methode zur Beantwortung eines HTTP-Requests. 
      * 
-     * @param target
-     * @param baseRequest
-     * @param request
-     * @param response
-     * @throws IOException
-     * @throws ServletException
+     * @param target             URL-Pfad von Request.
+     * @param baseRequest        Ursprünglicher Request.
+     * @param request            Anfrage-Objekt.
+     * @param response           Antwort-Objekt.
+     * @throws IOException       Allgemeiner Ein-/Ausgabe-Fehler.
+     * @throws ServletException  Servlet/HTTP-Fehler.
      */
     @Override
-    public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void handle(String              target, 
+                       Request             baseRequest, 
+                       HttpServletRequest  request, 
+                       HttpServletResponse response) throws IOException, ServletException {
 
-        response.setContentType("text/html; charset=utf-8");
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println("<h1>Hallo Welt</h1>");
+        System.out.println("target=" + target);
+
+        response.setContentType("application/json");
+        response.setStatus(HttpServletResponse.SC_OK); // HTTP-Antwort-Code 200
+        response.getWriter().println("{ \"status\": \"ok\"}");
+
         baseRequest.setHandled(true);
     }    
 

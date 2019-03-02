@@ -2,6 +2,7 @@ package de.mide.restapi.bmi;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.server.handler.ContextHandler;
 
 
 /**
@@ -17,10 +18,14 @@ public class MainServer {
 
     public static void main(String[] args) throws Exception {
 
-        AbstractHandler meinHandler = new BmiRestApiHandler();
+        AbstractHandler meinBmiBerechnungsHandler = new BmiRestApiHandler();
+
+        ContextHandler contextHandler = new ContextHandler();
+        contextHandler.setContextPath( "/bmiberechnung" );
+        contextHandler.setHandler( meinBmiBerechnungsHandler );
 
         Server server = new Server(PORT_NUMMBER);
-        server.setHandler(meinHandler);
+        server.setHandler(contextHandler);
         server.start();
         server.join();
     }
