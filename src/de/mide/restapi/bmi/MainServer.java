@@ -14,17 +14,26 @@ import org.eclipse.jetty.server.handler.ContextHandler;
 public class MainServer {
 
     /** Konstante mit Port-Nummber, an der der Web-Server auf Anfragen von Clients "lauscht". */
-    protected static final int PORT_NUMMBER = 8080;
+    protected static final int PORT_NUMMER = 8080;
 
+    /**
+     * Einstiegs-Methode, startet den eingebetteten Jetty-Server.
+     * <br><br>
+     * 
+     * Doku zur programmatischen Konfiguration eines ContextHandlers siehe
+     * <a href="https://www.eclipse.org/jetty/documentation/9.4.x/quickstart-config-what.html#intro-jetty-configuration-contexts" target="_blank">hier</a>.
+     * 
+     * @throws Exception  Fehler beim Server-Start aufgetreten.
+     */
     public static void main(String[] args) throws Exception {
 
         AbstractHandler meinBmiBerechnungsHandler = new BmiRestApiHandler();
 
         ContextHandler contextHandler = new ContextHandler();
-        contextHandler.setContextPath( "/bmiberechnung" );
+        contextHandler.setContextPath( BmiRestApiHandler.CONTEXT_PFAD );
         contextHandler.setHandler( meinBmiBerechnungsHandler );
 
-        Server server = new Server(PORT_NUMMBER);
+        Server server = new Server(PORT_NUMMER);
         server.setHandler(contextHandler);
         server.start();
         server.join();
