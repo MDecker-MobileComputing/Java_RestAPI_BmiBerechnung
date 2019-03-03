@@ -13,8 +13,13 @@ import org.eclipse.jetty.server.handler.ContextHandler;
  */
 public class MainServer {
 
-    /** Konstante mit Port-Nummber, an der der Web-Server auf Anfragen von Clients "lauscht". */
+    /** 
+	 * Konstante mit Port-Nummber, an der der Web-Server auf Anfragen von Clients "lauscht". 
+	 * Der Standard-Port für HTTP-Anfragen ist aber Port 80, aber ein Server-Programm für diesen
+	 * Port kann auf vielen Rechnern nur mit Admin-Rechten gestartet werden.
+	 */
     protected static final int PORT_NUMMER = 8080;
+
 
     /**
      * Einstiegs-Methode, startet den eingebetteten Jetty-Server.
@@ -26,6 +31,11 @@ public class MainServer {
      * @throws Exception  Fehler beim Server-Start aufgetreten.
      */
     public static void main(String[] args) throws Exception {
+		
+		String urlStr = "http://localhost:" + PORT_NUMMER + BmiRestApiHandler.CONTEXT_PFAD;
+				
+		System.out.println("\nLokale URL der REST-Methode: " + urlStr + "\n");
+		
 
         AbstractHandler meinBmiBerechnungsHandler = new BmiRestApiHandler();
 
