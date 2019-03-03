@@ -1,20 +1,28 @@
 # REST-API "BMI-Berechnung" (Java-Servlet mit Jetty)
 
-Einfache REST-API zur Berechnung des [Body-Mass-Index (BMI)](https://projekte.uni-hohenheim.de/wwwin140/info/interaktives/bmi.htm).
+Java-Programm zur Bereitstellung einer einfachen REST-API zur Berechnung des [Body-Mass-Index (BMI)](https://projekte.uni-hohenheim.de/wwwin140/info/interaktives/bmi.htm).
+Der BMI wird durch Division des Körpergewichts in kg durch die Größe in Metern berechnet.
+Je nach Geschlecht kann anhand des BMI dann eine Aussage getroffen werden, ob die Person normal-, unter- oder übergewichtig ist.
+
+<br>
+
+----
+## REST-API-Methode
 
 Wenn das Programm auf dem lokalen Rechner gestartet wird, dann ist die REST-API-Methode (Endpoint) für 
 die BMI-Berechnung unter der folgenden URL verfügbar:
 
     http://localhost:8080/bmiberechnung/
 
-<br>
 
-Beim Aufruf dieser REST-API-Methode müssen aber die folgenden drei URL-Parameter übergeben werden:
-* `gewicht`   : Gewicht in kg
-* `groesse`   : Körpergröße in cm
+Beim Aufruf dieser REST-API-Methode müssen immer die folgenden drei URL-Parameter übergeben werden:
+* `gewicht`   : Gewicht in kg (ganzzahlig)
+* `groesse`   : Körpergröße in cm (ganzzahlig)
 * `geschlecht`: Entweder `mann` oder `frau`
 
-Beispiel für eine URL:  http://localhost:8080/bmiberechnung/?gewicht=75&groesse=180&geschlecht=mann
+Beispiel für eine zulässige URL:
+
+    http://localhost:8080/bmiberechnung/?gewicht=75&groesse=180&geschlecht=mann
 
 Wenn nur einer dieser URL-Parameter nicht gesetzt ist oder einen ungültigen Wert hat, dann wird eine Exception geworfen.
 
