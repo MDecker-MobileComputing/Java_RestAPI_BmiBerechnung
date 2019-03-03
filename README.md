@@ -9,6 +9,17 @@ die BMI-Berechnung unter der folgenden URL verfügbar:
 
 <br>
 
+Beim Aufruf dieser REST-API-Methode müssen aber die folgenden drei URL-Parameter übergeben werden:
+* `gewicht`   : Gewicht in kg
+* `groesse`   : Körpergröße in cm
+* `geschlecht`: Entweder `mann` oder `frau`
+
+Beispiel für eine URL:  http://localhost:8080/bmiberechnung/?gewicht=75&groesse=180&geschlecht=mann
+
+Wenn nur einer dieser URL-Parameter nicht gesetzt ist oder einen ungültigen Wert hat, dann wird eine Exception geworfen.
+
+<br>
+
 ----
 ## Jetty
 
