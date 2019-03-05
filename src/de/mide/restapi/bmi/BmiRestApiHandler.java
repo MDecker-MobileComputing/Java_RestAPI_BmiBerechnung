@@ -70,7 +70,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
         }
 
 
-		// Eigentliche BMI-Berechenung.
+		// TODO: Eigentliche BMI-Berechnung
 
 
 
