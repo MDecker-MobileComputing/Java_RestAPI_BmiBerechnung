@@ -95,6 +95,66 @@ public class BmiRestApiHandler extends AbstractHandler  {
                 throw new ServletException( "Kein zulaessiger Wert fuer URL-Parameter \"geschlecht\": \"" + parameterWert + "\"" );
         }        
     }
+    
+    
+    /**
+     * BMI-Wert auswerten nach (nach DGE, Ernährungsbericht 1992).
+     * 
+     * @param bmiWert  Ungerundeter BMI-Wert.
+     * 
+     * @param istMann  {@code true} für männlich, {@code false} für weiblich.
+     * 
+     * @return  String mit Bewertung von BMI-Wert, z.B. "Untergewicht" oder "Normalgewicht". 
+     */
+    protected String bmiAuswerten(double bmiWert, boolean istMann) {
+        
+        if (istMann) {
+            
+            if (bmiWert < 20) {
+                
+                return "Untergewicht";
+                
+            } else if (bmiWert <= 25 ) {
+                                
+                return "Normalgewicht";
+                
+            } else if (bmiWert <= 30) {
+                
+                return "Übergewicht";
+                
+            } else if (bmiWert <= 40) {
+                
+                return "Adipositas";
+                
+            } else {
+                
+                return "Massive Adipositas";
+            }
+                        
+        } else { // für Frauen
+            
+            if (bmiWert < 19) {
+                
+                return "Untergewicht";
+                
+            } else if (bmiWert <= 24 ) {
+                                
+                return "Normalgewicht";
+                
+            } else if (bmiWert <= 30) {
+                
+                return "Übergewicht";
+                
+            } else if (bmiWert <= 40) {
+                
+                return "Adipositas";
+                
+            } else {
+                
+                return "Massive Adipositas";
+            }                        
+        }        
+    }
 
 
     /**
@@ -129,20 +189,29 @@ public class BmiRestApiHandler extends AbstractHandler  {
         
         String  geschlechtString = request.getParameter( "geschlecht" );
         boolean istMann          = parseParameterGeschlecht( geschlechtString ); 
+        
+        String logString = String.format("%nURL-Parameter-Werte: Gewicht=%dkg, Groesse=%dcm, istMann=%b.", gewichtKg, groesseCm, istMann);
+        System.out.println( logString ); // Beispiel-Ausgabe: URL-Parameter-Werte: Gewicht=80kg, Groesse=170cm, istMann=true.
 
         
-		// TODO: Eigentliche BMI-Berechnung
-        double bmi         = gewichtKg / Math.pow(groesseCm / 100.0, 2);
-        double bmiGerundet = Math.round(bmi * 100.0) / 100.0;
+		// Eigentliche BMI-Berechnung
+        double groesseMeter     = groesseCm / 100.0;
+        double bmiNichtGerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
+        double bmiGerundet      = ((int)( bmiNichtGerundet * 100)) / 100.0;
 
+        String bewertung = bmiAuswerten( bmiNichtGerundet, istMann);
 
+        logString = String.format("Ergebnis BMI-Berechung: BMI(ungerundet)=%f, BMI(gerundet)=%f, Bewertung=\"%s\".", bmiNichtGerundet, bmiGerundet, bewertung);
+        System.out.println( logString );
+        
 
         // HTTP-Response erstellen
         response.setContentType( "application/json" );
         response.setStatus( HttpServletResponse.SC_OK ); // HTTP-Antwort-Code 200
-        response.getWriter().println( "{ \"status\": \"ok\", \"bmi\": " + bmiGerundet + "}" );
+                
+        response.getWriter().println( "{ \"status\": \"ok\", \"bmi\": " + bmiGerundet + ", \"bewertung\": \"" + bewertung + "\"}" );
 
-        // IDEE: JSON-Dokument mit Jackson erzeugen ( https://wilddiary.com/serialize-java-objects-json-back/ )
+        // TODO JSON-Dokument mit Jackson erzeugen ( https://wilddiary.com/serialize-java-objects-json-back/ )
 
         baseRequest.setHandled( true );
     }

@@ -43,6 +43,19 @@ für die Verwendung von Jetty, und [hier für die API-Dokumentation](https://www
 <br>
 
 ----
+## Kompilierung und Ausführung
+
+Das Repository kann als Eclipse-Projekt importiert werden.
+
+<br>
+
+Unter Windows kann das Skript `build.bat` zur Kompilierung und danach `run.bat` zur Ausführung aufgerufen werden.
+
+Unter Linux und MacOS kann das Skript `build.sh` zur Kompilierung und danach `run.sh` zur Ausführung aufgerufen werden.
+
+<br>
+
+----
 # License
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
