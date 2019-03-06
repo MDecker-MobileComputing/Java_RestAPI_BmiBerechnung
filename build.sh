@@ -2,7 +2,7 @@
 
 # Skript zum Kompilieren des Programms unter Linux und MacOS.
 
-KLASSENPFAD=classes:lib/jetty-all-9.4.9.jar;lib/jackson-core-2.9.8.jar;lib/jackson-databind-2.9.8.jar;lib/jackson-annotations-2.9.8.jar
+KLASSENPFAD=classes:lib/jetty-all-9.4.9.jar:lib/jackson-core-2.9.8.jar:lib/jackson-databind-2.9.8.jar:lib/jackson-annotations-2.9.8.jar
 
 
 # Sicherstellen, dass Ausgabe-Verzeichnis fuer Compiler existiert
