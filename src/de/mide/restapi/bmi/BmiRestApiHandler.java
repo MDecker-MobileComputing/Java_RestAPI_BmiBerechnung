@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 
 /**
  * Klasse mit der Logik zur Beantwortung eines HTTP-Requests.
@@ -19,6 +22,18 @@ public class BmiRestApiHandler extends AbstractHandler  {
     /** URL-Pfad, unter dem diese REST-Methode (Endpoint) zu erreichen ist. */
     public static final String CONTEXT_PFAD = "/bmiberechnung";
 
+    /** Objekt zur Serialisierung eines Java-Objekts nach JSON; wird im Konstruktor erzeugt. */
+    public ObjectMapper _jacksonObjectMapper = null;
+    
+    
+    /**
+     * Jackson-Serialisierer wird erzeugt. 
+     */
+    public BmiRestApiHandler() {
+        
+        _jacksonObjectMapper = new ObjectMapper();
+        _jacksonObjectMapper.enable(SerializationFeature.INDENT_OUTPUT); // "Pretty Printing" einschalten        
+    }
 
     /**
      * Auswerten des URL-Parameters {@code gewicht}.
@@ -190,29 +205,31 @@ public class BmiRestApiHandler extends AbstractHandler  {
         String  geschlechtString = request.getParameter( "geschlecht" );
         boolean istMann          = parseParameterGeschlecht( geschlechtString ); 
         
-        String logString = String.format("%nURL-Parameter-Werte: Gewicht=%dkg, Groesse=%dcm, istMann=%b.", gewichtKg, groesseCm, istMann);
+        String logString = String.format("%nURL-Parameter-Werte: Gewicht=%dkg, Groesse=%dcm, istMann=%b.", 
+                                         gewichtKg, groesseCm, istMann);
         System.out.println( logString ); // Beispiel-Ausgabe: URL-Parameter-Werte: Gewicht=80kg, Groesse=170cm, istMann=true.
 
         
 		// Eigentliche BMI-Berechnung
-        double groesseMeter     = groesseCm / 100.0;
-        double bmiNichtGerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
-        double bmiGerundet      = ((int)( bmiNichtGerundet * 100)) / 100.0;
-
-        String bewertung = bmiAuswerten( bmiNichtGerundet, istMann);
-
-        logString = String.format("Ergebnis BMI-Berechung: BMI(ungerundet)=%f, BMI(gerundet)=%f, Bewertung=\"%s\".", bmiNichtGerundet, bmiGerundet, bewertung);
-        System.out.println( logString );
+        BmiResultObjekt resultObjekt = new BmiResultObjekt();
         
+        double groesseMeter     = groesseCm / 100.0;
+        
+        resultObjekt.bmiNichtGerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
+        resultObjekt.bmiGerundet      = ((int)( resultObjekt.bmiNichtGerundet * 100)) / 100.0;
+
+        resultObjekt.bewertung = bmiAuswerten( resultObjekt.bmiNichtGerundet, istMann);
+
+
+        // Java-Objekt in JSON-String umwandeln
+        String jsonResultString = _jacksonObjectMapper.writeValueAsString(resultObjekt);        
+
 
         // HTTP-Response erstellen
         response.setContentType( "application/json" );
         response.setStatus( HttpServletResponse.SC_OK ); // HTTP-Antwort-Code 200
-                
-        response.getWriter().println( "{ \"status\": \"ok\", \"bmi\": " + bmiGerundet + ", \"bewertung\": \"" + bewertung + "\"}" );
-
-        // TODO JSON-Dokument mit Jackson erzeugen ( https://wilddiary.com/serialize-java-objects-json-back/ )
-
+        response.getWriter().println( jsonResultString );        
+        
         baseRequest.setHandled( true );
     }
 

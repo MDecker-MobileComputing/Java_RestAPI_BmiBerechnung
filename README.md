@@ -60,5 +60,14 @@ Unter Linux und MacOS kann das Skript `build.sh` zur Kompilierung und danach `ru
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
 
-[Jetty](https://www.eclipse.org/jetty/) (which is included as jar file in folder `lib/` of this project because it is a dependency of the program) is dual licensed under the Apache License 2.0 and Eclipse Public License 1.0., see also [here](https://www.eclipse.org/jetty/licenses.html).
+<br>
 
+Third-Party-Libraries:
+
+* [Jetty](https://www.eclipse.org/jetty/) is dual licensed under the *Apache License 2.0* and *Eclipse Public License 1.0*, see [here](https://www.eclipse.org/jetty/licenses.html).
+
+* [Jackson](https://github.com/FasterXML/jackson) is licensed under the *Apache License 2.0*, see [here](https://github.com/FasterXML/jackson/wiki/FAQ).
+
+<br>
+
+The jar files for these third-party libraries (one jar file for Jetty, and three for Jackson) are contained in this repositories folder `lib`.
