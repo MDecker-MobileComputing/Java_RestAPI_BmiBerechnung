@@ -8,6 +8,9 @@ package de.mide.restapi.bmi;
  * <br>
  *  
  * Es wird für alle öffentliche Member-Variablen ein Key-Value-Paar in den JSON-String geschrieben. 
+ * <br><br>
+ *
+ * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class BmiResultObjekt {
     
