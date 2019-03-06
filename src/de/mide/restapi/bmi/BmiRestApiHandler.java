@@ -35,6 +35,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
         _jacksonObjectMapper.enable(SerializationFeature.INDENT_OUTPUT); // "Pretty Printing" einschalten        
     }
 
+
     /**
      * Auswerten des URL-Parameters {@code gewicht}.
      * 
