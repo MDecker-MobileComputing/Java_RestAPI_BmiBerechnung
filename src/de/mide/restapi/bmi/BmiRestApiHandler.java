@@ -211,18 +211,17 @@ public class BmiRestApiHandler extends AbstractHandler  {
         System.out.println( logString ); // Beispiel-Ausgabe: URL-Parameter-Werte: Gewicht=80kg, Groesse=170cm, istMann=true.
 
         
-		// Eigentliche BMI-Berechnung
-        BmiResultObjekt resultObjekt = new BmiResultObjekt();
-        
-        double groesseMeter     = groesseCm / 100.0;
-        
-        resultObjekt.bmiNichtGerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
-        resultObjekt.bmiGerundet      = ((int)( resultObjekt.bmiNichtGerundet * 100)) / 100.0;
+		// Eigentliche BMI-Berechnung                
+        double groesseMeter     = groesseCm / 100.0;        
+        double bmiUngerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
+        double bmiGerundet   = ((int)( bmiUngerundet * 100)) / 100.0;
 
-        resultObjekt.bewertung = bmiAuswerten( resultObjekt.bmiNichtGerundet, istMann);
+        String bewertung = bmiAuswerten( bmiUngerundet, istMann);
 
 
         // Java-Objekt in JSON-String umwandeln
+        BmiResultObjekt resultObjekt = new BmiResultObjekt(bmiUngerundet, bmiGerundet, bewertung);
+        System.out.println( resultObjekt.toString() );
         String jsonResultString = _jacksonObjectMapper.writeValueAsString(resultObjekt);        
 
 
