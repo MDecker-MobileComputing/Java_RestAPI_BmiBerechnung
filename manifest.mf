@@ -1,0 +1,1 @@
+Main-Class: de.mide.restapi.bmi.MainServer
