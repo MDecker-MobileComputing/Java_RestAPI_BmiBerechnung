@@ -108,7 +108,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
                 return false;
             
             default: 
-                throw new ServletException( "Kein zulaessiger Wert fuer URL-Parameter \"geschlecht\": \"" + parameterWert + "\"" );
+                throw new ServletException( "Kein zulaessiger Wert fuer URL-Parameter \"geschlecht\": \"" + parameterWert + "\" -- nur die Werte \"mann\" und \"frau\" sind zulaessig." );
         }        
     }
     
@@ -180,9 +180,9 @@ public class BmiRestApiHandler extends AbstractHandler  {
      * 
      * @param baseRequest  Ursprünglicher Request.
      * 
-     * @param request  Anfrage-Objekt.
+     * @param request  Anfrage-Objekt, aus dem die URL-Parameter ausgelesen werden.
      * 
-     * @param response  Antwort-Objekt.
+     * @param response  Antwort-Objekt (JSON-String).
      * 
      * @throws IOException  Allgemeiner Ein-/Ausgabe-Fehler.
      * 
@@ -212,7 +212,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
 
         
 		// Eigentliche BMI-Berechnung                
-        double groesseMeter     = groesseCm / 100.0;        
+        double groesseMeter  = groesseCm / 100.0;        
         double bmiUngerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
         double bmiGerundet   = ((int)( bmiUngerundet * 100)) / 100.0;
 
