@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"de.mide.restapi.bmi"}]

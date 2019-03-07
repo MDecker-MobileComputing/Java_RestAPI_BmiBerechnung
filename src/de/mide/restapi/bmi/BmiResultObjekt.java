@@ -30,7 +30,7 @@ public class BmiResultObjekt {
     /**
      * Konstruktor zum Setzen der Attribute-Werte.
      *  
-     * @param bmiNichtGerundet  Ungerundeter BMI-Wert (keine Nachkommastellen abgeschnitten).
+     * @param bmiUngerundet  Ungerundeter BMI-Wert (keine Nachkommastellen abgeschnitten).
      * 
      * @param bmiGerundet  BMI-Wert, bei dem nur die ersten beiden Nachkommastellen nicht abgeschnitten wurden. 
      * 
@@ -47,7 +47,7 @@ public class BmiResultObjekt {
     /**
      * Liefert String mit einigen Attribut-Werten zurück, kann auf Logger geschrieben werden.
      * 
-     * @return  String mit Wert von BMI (ungerundet & gerundet) sowie Bewertung.
+     * @return  String mit Wert von BMI (ungerundet und gerundet) sowie Bewertung.
      */
     public String toString() {
         

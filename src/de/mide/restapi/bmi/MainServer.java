@@ -28,6 +28,8 @@ public class MainServer {
      * Doku zur programmatischen Konfiguration eines ContextHandlers siehe
      * <a href="https://www.eclipse.org/jetty/documentation/9.4.x/quickstart-config-what.html#intro-jetty-configuration-contexts" target="_blank">hier</a>.
      *
+     * @param args  Kommandozeilen-Argumente, wird nicht ausgewertet.
+     *
      * @throws Exception  Fehler beim Server-Start aufgetreten.
      */
     public static void main(String[] args) throws Exception {
