@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"de.mide.restapi.bmi","l":"BmiRestApiHandler"},{"p":"de.mide.restapi.bmi","l":"BmiResultObjekt"},{"p":"de.mide.restapi.bmi","l":"MainServer"}]
