@@ -11,20 +11,18 @@ mkdir -p $ZIELVERZEICHNIS
 # -p: Keinen Fehler ausgeben, wenn das Verzeichnis schon existiert
 
 
-javapackager \
-    -cp $KLASSENPFAD \
-    -deploy \
-    -native dmg \
-    -BsystemWide=true \
-#        -BjvmOptions=-Xmx128m
-#        -BjvmOptions=-Xms128m
-#        -BjvmOptions=-server
+javapackager -deploy \
+    -classpath $KLASSENPFAD \
+    -native dmg -BsystemWide=true \
     -outdir $ZIELVERZEICHNIS \
     -outfile RestApiBmiBerechnung \
     -srcdir classes \
     -appclass de.mide.restapi.bmi.MainServer \
     -name RestApiBmiBerechnung \
     -title "REST-API BMI-Berechnung"
+#        -BjvmOptions=-Xmx128m
+#        -BjvmOptions=-Xms128m
+#        -BjvmOptions=-server
 
 # -deploy dmg: "Assembles the application package for redistribution"; "dmg" ist Format fuer MacOS
 # -BsystemWide:  "Set to true to install the application in Program Files. Set to false to install the application in the user's home directory."
