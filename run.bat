@@ -6,3 +6,6 @@
 java -server -cp %KLASSENPFAD% de.mide.restapi.bmi.MainServer
 @REM -cp     : Classpath setzen
 @REM -server : JVM im Server-Modus, siehe auch hier https://stackoverflow.com/a/198651/1364368 
+
+@REM Statt Default-Port-Nummer 8080 eine andere Port-Nummber verwenden
+@REM java -server -cp %KLASSENPFAD% de.mide.restapi.bmi.MainServer 9090

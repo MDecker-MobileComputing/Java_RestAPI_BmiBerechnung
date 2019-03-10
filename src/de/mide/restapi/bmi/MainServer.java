@@ -18,7 +18,7 @@ public class MainServer {
      * Der Standard-Port für HTTP-Anfragen ist aber Port 80, aber ein Server-Programm für diesen
      * Port kann auf vielen Rechnern nur mit Admin-Rechten gestartet werden.
      */
-    protected static final int PORT_NUMMER = 8080;
+    protected static final int DEFAULT_PORT_NUMMER = 8080;
 
 
     /**
@@ -28,13 +28,32 @@ public class MainServer {
      * Doku zur programmatischen Konfiguration eines ContextHandlers siehe
      * <a href="https://www.eclipse.org/jetty/documentation/9.4.x/quickstart-config-what.html#intro-jetty-configuration-contexts" target="_blank">hier</a>.
      *
-     * @param args  Kommandozeilen-Argumente, wird nicht ausgewertet.
+     * @param args  Kommandozeilen-Argumente; als einziges Argument kann eine Port-Nummber übergeben werden
+     *              um die in {@link MainServer#DEFAULT_PORT_NUMMER} definierte Default-Port-Nummber zu überschreiben.
      *
      * @throws Exception  Fehler beim Server-Start aufgetreten.
      */
     public static void main(String[] args) throws Exception {
+        
+        int portNummer = DEFAULT_PORT_NUMMER;
+        
+        if (args.length > 1) {
+            throw new Exception("Mehr als ein Kommandozeilen-Argument uebergeben.");
+        }
+        
+        if (args.length == 1) {
+            
+            try {
+                portNummer = Integer.parseInt( args[0] );
+                
+            } catch (NumberFormatException ex) {
+                
+                throw new Exception("Ungültige Port-Nummber \"" + args[0] + "\" als Kommandozeilen-Argument uebergeben.");
+            }            
+        }
+        
 
-        String urlStr = "http://localhost:" + PORT_NUMMER + BmiRestApiHandler.CONTEXT_PFAD;
+        String urlStr = "http://localhost:" + portNummer + BmiRestApiHandler.CONTEXT_PFAD;
 
         System.out.println("\nLokale URL der REST-Methode: " + urlStr + "\n");
 
@@ -45,7 +64,7 @@ public class MainServer {
         contextHandler.setContextPath( BmiRestApiHandler.CONTEXT_PFAD );
         contextHandler.setHandler( meinBmiBerechnungsHandler );
 
-        Server server = new Server(PORT_NUMMER);
+        Server server = new Server(portNummer);
         server.setHandler(contextHandler);
         server.start();
         server.join();
