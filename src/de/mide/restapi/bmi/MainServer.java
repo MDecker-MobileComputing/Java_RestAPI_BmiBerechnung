@@ -17,6 +17,7 @@ public class MainServer {
      * Konstante mit Port-Nummber, an der der Web-Server auf Anfragen von Clients "lauscht".
      * Der Standard-Port für HTTP-Anfragen ist aber Port 80, aber ein Server-Programm für diesen
      * Port kann auf vielen Rechnern nur mit Admin-Rechten gestartet werden.
+     * Diese Default-Port-Nummer kann mit einem Kommandozeilen-Argument überschrieben werden.
      */
     protected static final int DEFAULT_PORT_NUMMER = 8080;
 
@@ -48,7 +49,7 @@ public class MainServer {
                 
             } catch (NumberFormatException ex) {
                 
-                throw new Exception("Ungültige Port-Nummber \"" + args[0] + "\" als Kommandozeilen-Argument uebergeben.");
+                throw new Exception("Ungueltige Port-Nummber \"" + args[0] + "\" als Kommandozeilen-Argument uebergeben.");
             }            
         }
         
