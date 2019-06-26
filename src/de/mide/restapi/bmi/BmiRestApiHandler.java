@@ -114,7 +114,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
     
     
     /**
-     * BMI-Wert auswerten nach (nach DGE, Ernährungsbericht 1992).
+     * BMI-Wert auswerten nach (nach DGE, Ernährungsbericht 1992) in Abhängigkeit von Geschlecht.
      * 
      * @param bmiWert  Ungerundeter BMI-Wert.
      * 
