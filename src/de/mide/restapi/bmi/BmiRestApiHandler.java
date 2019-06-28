@@ -195,7 +195,6 @@ public class BmiRestApiHandler extends AbstractHandler  {
                         HttpServletRequest  request    ,
                         HttpServletResponse response   ) throws IOException,
                                                                 ServletException {
-
         // URL-Parameter auswerten
         String gewichtStr = request.getParameter( "gewicht" );
         int    gewichtKg  = parseParameterGewicht( gewichtStr );
@@ -211,7 +210,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
         System.out.println( logString ); // Beispiel-Ausgabe: URL-Parameter-Werte: Gewicht=80kg, Groesse=170cm, istMann=true.
 
         
-		// Eigentliche BMI-Berechnung                
+	// Eigentliche BMI-Berechnung                
         double groesseMeter  = groesseCm / 100.0;        
         double bmiUngerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
         double bmiGerundet   = ((int)( bmiUngerundet * 100)) / 100.0;
