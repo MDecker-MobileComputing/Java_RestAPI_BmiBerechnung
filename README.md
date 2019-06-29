@@ -6,6 +6,11 @@ Je nach Geschlecht kann anhand des BMI dann eine Aussage getroffen werden, ob di
 
 <br>
 
+Siehe auch [dieses Repository](https://github.com/MDecker-MobileComputing/Java_RestApi_SpringBoot) für eine Beispiel-App, die
+eine REST-API mit Java implementiert, allerdings mit dem Framework *Spring Boot*.
+
+<br>
+
 ----
 ## REST-API-Methode
 
