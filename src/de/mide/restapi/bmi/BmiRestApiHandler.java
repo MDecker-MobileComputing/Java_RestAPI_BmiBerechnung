@@ -48,13 +48,16 @@ public class BmiRestApiHandler extends AbstractHandler  {
     protected int parseParameterGewicht(String parameterWert) throws ServletException {
         
         if (parameterWert == null || parameterWert.trim().length() == 0) {
+        	
             throw new ServletException( "Kein Wert fuer URL-Parameter \"gewicht\"." );
         }
         
         try {
+        	
             return Integer.parseInt( parameterWert );
         }
         catch (NumberFormatException ex) {
+        	
             throw new ServletException( "Kein zulaessiger Wert fuer URL-Parameter \"gewicht\": \"" + parameterWert + "\"" );
         }    
     }
@@ -72,13 +75,16 @@ public class BmiRestApiHandler extends AbstractHandler  {
     protected int parseParameterGroesse(String parameterWert) throws ServletException {
 
         if (parameterWert == null || parameterWert.trim().length() == 0) {
+        	
             throw new ServletException( "Kein Wert fuer URL-Parameter \"groesse\"." );
         }
                 
         try {
+        	
             return Integer.parseInt( parameterWert );
         }
         catch (NumberFormatException ex) {
+        	
             throw new ServletException( "Kein zulaessiger Wert fuer URL-Parameter \"groesse\": \"" + parameterWert + "\"" );
         }    
     }
@@ -96,6 +102,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
     protected boolean parseParameterGeschlecht(String parameterWert) throws ServletException {
         
         if (parameterWert == null || parameterWert.trim().length() == 0) {
+        	
             throw new ServletException( "Kein Wert fuer URL-Parameter \"geschlecht\"." );                        
         }
         
@@ -193,8 +200,8 @@ public class BmiRestApiHandler extends AbstractHandler  {
     public void handle( String              target     ,
                         Request             baseRequest,
                         HttpServletRequest  request    ,
-                        HttpServletResponse response   ) throws IOException,
-                                                                ServletException {
+                        HttpServletResponse response     ) throws IOException,
+                                                                  ServletException {
         // URL-Parameter auswerten
         String gewichtStr = request.getParameter( "gewicht" );
         int    gewichtKg  = parseParameterGewicht( gewichtStr );
@@ -210,7 +217,7 @@ public class BmiRestApiHandler extends AbstractHandler  {
         System.out.println( logString ); // Beispiel-Ausgabe: URL-Parameter-Werte: Gewicht=80kg, Groesse=170cm, istMann=true.
 
         
-	// Eigentliche BMI-Berechnung                
+    	// Eigentliche BMI-Berechnung                
         double groesseMeter  = groesseCm / 100.0;        
         double bmiUngerundet = gewichtKg / ( groesseMeter * groesseMeter ); 
         double bmiGerundet   = ((int)( bmiUngerundet * 100)) / 100.0;

@@ -39,12 +39,14 @@ public class MainServer {
         int portNummer = DEFAULT_PORT_NUMMER;
         
         if (args.length > 1) {
+
             throw new Exception("Mehr als ein Kommandozeilen-Argument uebergeben.");
         }
         
         if (args.length == 1) {
             
             try {
+            	
                 portNummer = Integer.parseInt( args[0] );
                 
             } catch (NumberFormatException ex) {
