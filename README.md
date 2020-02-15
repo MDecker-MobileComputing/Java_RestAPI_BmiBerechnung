@@ -31,7 +31,7 @@ Beispiel für eine zulässige URL:
 
 Wenn nur einer dieser URL-Parameter nicht gesetzt ist oder einen ungültigen Wert hat, dann wird eine Exception geworfen.
 
-Doku dieser REST-API mit [Swagger UI](https://github.com/swagger-api/swagger-ui): 
+Doku dieser REST-API mit *Swagger UI*: https://mdecker-mobilecomputing.github.io/Java_RestAPI_BmiBerechnung/
 
 <br>
 
@@ -81,4 +81,6 @@ The jar files for these third-party libraries (one jar file for Jetty, and three
 
 <br>
 
-[swagger-ui-dist](https://www.npmjs.com/package/swagger-ui-dist), which is used to display the API definition in file [osa.yml](osa.yml), is licensed under the *Apache License 2.0*, see [here](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE). These files are contained in folder [docs](docs/) of this repository, so they can be served by [GitHub Pages](https://pages.github.com/).
+[swagger-ui-dist](https://www.npmjs.com/package/swagger-ui-dist), which is used to display the API definition in file [osa.yml](osa.yml), is licensed under the *Apache License 2.0*, see [here](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE). 
+These files are contained in folder [docs](docs/) of this repository, so they can be served by [GitHub Pages](https://pages.github.com/). 
+In file [docs/index.html](https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung/blob/master/docs/index.html#L43) the URL to file [osa.yml](osa.yml) from this repository was inserted.
