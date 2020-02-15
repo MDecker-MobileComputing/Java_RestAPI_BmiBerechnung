@@ -200,8 +200,10 @@ public class BmiRestApiHandler extends AbstractHandler  {
     public void handle( String              target     ,
                         Request             baseRequest,
                         HttpServletRequest  request    ,
-                        HttpServletResponse response     ) throws IOException,
-                                                                  ServletException {
+                        HttpServletResponse response     
+                      ) 
+                      throws IOException, ServletException {
+                                                                  
         // URL-Parameter auswerten
         String gewichtStr = request.getParameter( "gewicht" );
         int    gewichtKg  = parseParameterGewicht( gewichtStr );

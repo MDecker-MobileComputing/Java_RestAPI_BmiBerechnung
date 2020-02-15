@@ -6,6 +6,8 @@ info:
   contact:
     name: MDecker-MobileComputing
     url: https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung
+  license: 
+    name: BSD 3-Clause
 paths:
   /bmiberechnung:
     get:
@@ -32,3 +34,7 @@ paths:
           required: true
           schema:
             type: string
+            enum: [mann, frau]
+      responses:
+        '200':
+          description: Ergebnis einer BMI-Berechnung
