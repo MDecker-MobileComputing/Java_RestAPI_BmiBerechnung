@@ -1,13 +1,17 @@
 openapi: 3.0.0
+# Web-Editor für Anzeige und Syntax-Check dieser Datei: http://editor.swagger.io/
 info:
   version: 1.0.0
   title: BMI-Berechnung
-  description: Sehr einfache REST-API zur Berechnung des "Body Mass Index (BMI)"
+  description: Sehr einfache REST-API zur Berechnung des "Body Mass Index (BMI)".
   contact:
     name: MDecker-MobileComputing
     url: https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung
   license: 
     name: BSD 3-Clause
+servers:
+  - url: http://localhost:8080/
+    description: Bei Ausführung Java-Programm mit Default-Port
 paths:
   /bmiberechnung:
     get:
