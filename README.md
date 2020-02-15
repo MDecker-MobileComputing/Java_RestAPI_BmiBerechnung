@@ -31,6 +31,8 @@ Beispiel für eine zulässige URL:
 
 Wenn nur einer dieser URL-Parameter nicht gesetzt ist oder einen ungültigen Wert hat, dann wird eine Exception geworfen.
 
+Doku dieser REST-API mit [Swagger UI](https://github.com/swagger-api/swagger-ui): 
+
 <br>
 
 ----
@@ -76,3 +78,7 @@ Third-Party-Libraries:
 <br>
 
 The jar files for these third-party libraries (one jar file for Jetty, and three for Jackson) are contained in this repositories folder `lib`.
+
+<br>
+
+[swagger-ui-dist](https://www.npmjs.com/package/swagger-ui-dist), which is used to display the API definition in file [osa.yml](osa.yml), is licensed under the *Apache License 2.0*, see [here](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE). These files are contained in folder [docs](docs/) of this repository, so they can be served by [GitHub Pages](https://pages.github.com/).
