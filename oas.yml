@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: BMI-Berechnung
+  description: Sehr einfache REST-API zur Berechnung des "Body Mass Index (BMI)"
+  contact:
+    name: MDecker-MobileComputing
+    url: https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung
+paths:
+  /bmiberechnung:
+    get:
+      description: Berechnet BMI für eine Person
+      operationId: calcBmi
+      parameters:
+        - name: gewicht
+          in: query
+          description: Gewicht der Person in kg
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: groesse
+          in: query
+          description: Größe der Person in cm
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: geschlecht
+          in: query
+          description: Geschlecht der Person
+          required: true
+          schema:
+            type: string
