@@ -1,6 +1,6 @@
 # REST-API "BMI-Berechnung" (Java-Servlet mit Jetty)
 
-Java-Programm zur Bereitstellung einer einfachen REST-API zur Berechnung des [Body-Mass-Index (BMI)](https://projekte.uni-hohenheim.de/wwwin140/info/interaktives/bmi.htm).
+Java-Programm zur Bereitstellung einer einfachen REST-API zur Berechnung des [Body-Mass-Index (BMI)](https://www.tk.de/service/app/2002866/bmirechner/bmirechner.app).
 Der BMI wird durch Division des Körpergewichts in kg durch die Größe in Metern berechnet.
 Je nach Geschlecht kann anhand des BMI dann eine Aussage getroffen werden, ob die Person normal-, unter- oder übergewichtig ist.
 
