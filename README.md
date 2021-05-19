@@ -83,4 +83,4 @@ The jar files for these third-party libraries (one jar file for Jetty, and three
 
 [swagger-ui-dist](https://www.npmjs.com/package/swagger-ui-dist), which is used to display the API definition in file [osa.yml](osa.yml), is licensed under the *Apache License 2.0*, see [here](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE). 
 These files are contained in folder [docs](docs/) of this repository, so they can be served by [GitHub Pages](https://pages.github.com/). 
-In file [docs/index.html](https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung/blob/master/docs/index.html#L43) the URL to file [osa.yml](osa.yml) from this repository was inserted.
+In file [docs/index.html](https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung/blob/master/docs/index.html#L43) the URL to file [oas.yml](oas.yml) from this repository was inserted.
