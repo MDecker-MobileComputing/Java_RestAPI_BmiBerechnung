@@ -10,3 +10,4 @@ java -server -cp $KLASSENPFAD de.mide.restapi.bmi.MainServer
 
 # Server an Non-Default-Port 9090 starten
 #java -server -cp $KLASSENPFAD de.mide.restapi.bmi.MainServer 9090
+

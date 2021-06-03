@@ -14,3 +14,4 @@ javac -cp $KLASSENPFAD -d classes -sourcepath src src/de/mide/restapi/bmi/*.java
 # -cp         : Classpath setzen
 # -d          : Destination folder (Zielverzeichnis fuer class-Dateien)
 # -sourcepath : Einstiegsverzeichnis fuer Java-Quellcode-Dateien
+
