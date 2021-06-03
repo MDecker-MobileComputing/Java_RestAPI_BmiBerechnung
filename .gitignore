@@ -3,4 +3,6 @@ classes/
 .vscode/
 .settings/
 javadoc/
-RestApiBmiBerechnung.jar
+target/
+
+

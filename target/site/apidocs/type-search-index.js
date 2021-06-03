@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"de.mide.restapi.bmi","l":"BmiRestApiHandler"},{"p":"de.mide.restapi.bmi","l":"BmiResultObjekt"},{"p":"de.mide.restapi.bmi","l":"MainServer"}]
