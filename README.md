@@ -1,5 +1,7 @@
 # REST-API "BMI-Berechnung" (Java-Servlet mit Jetty) #
 
+<br>
+
 Java-Programm zur Bereitstellung einer einfachen REST-API zur Berechnung des [Body-Mass-Index (BMI)](https://www.tk.de/service/app/2002866/bmirechner/bmirechner.app).
 Der BMI wird durch Division des Körpergewichts in kg durch die Größe in Metern berechnet.
 Je nach Geschlecht kann anhand des BMI dann eine Aussage getroffen werden, ob die Person normal-, unter- oder übergewichtig ist.
@@ -12,7 +14,10 @@ eine REST-API mit Java implementiert, allerdings mit dem Framework *Spring Boot*
 <br>
 
 ----
+
 ## REST-API-Methode ##
+
+<br>
 
 Wenn das Programm auf dem lokalen Rechner gestartet wird, dann ist die REST-API-Methode (Endpoint) für
 die BMI-Berechnung unter der folgenden URL verfügbar:
@@ -36,7 +41,10 @@ Doku dieser REST-API mit [Swagger UI](https://swagger.io/tools/swagger-ui/): htt
 <br>
 
 ----
+
 ## Jetty ##
+
+<br>
 
 Das Java-Programm verwendet [Jetty](https://www.eclipse.org/jetty/) als eingebetteten Servlet-Container.
 Ein [Servlet](http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_23_001.htm#mjd7254da57686a2ef9e5fcb69a2a97220) ist eine Java-Klasse, die HTTP-Anfragen (als Web-Server-Anfragen) beantworten kann.
@@ -50,7 +58,10 @@ für die Verwendung von Jetty, und [hier für die API-Dokumentation](https://www
 <br>
 
 ----
+
 ## License ##
+
+<br>
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
 
@@ -71,3 +82,5 @@ The jar files for these third-party libraries (one jar file for Jetty, and three
 [swagger-ui-dist](https://www.npmjs.com/package/swagger-ui-dist), which is used to display the API definition in file [osa.yml](osa.yml), is licensed under the *Apache License 2.0*, see [here](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE).
 These files are contained in folder [docs](docs/) of this repository, so they can be served by [GitHub Pages](https://pages.github.com/).
 In file [docs/index.html](https://github.com/MDecker-MobileComputing/Java_RestAPI_BmiBerechnung/blob/master/docs/index.html#L43) the URL to file [oas.yml](oas.yml) from this repository was inserted.
+
+<br>
