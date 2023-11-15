@@ -14,7 +14,7 @@ package de.mide.restapi.bmi;
  */
 public class BmiResultObjekt {
     
-    /** Status ist immer "OK" wenn es gelingt, ein Objekt dieser Klasse zu serialisieren und zurückzugeben.*/ 
+    /** Status ist immer "OK" wenn es gelingt, ein Objekt dieser Klasse zu serialisieren und zurückzugeben. */ 
     public String status = "OK"; 
    
     /** BMI-Wert;  Nur die ersten beiden Nachkommastellen sind noch enthalten. */
