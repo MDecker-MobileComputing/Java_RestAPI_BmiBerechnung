@@ -36,6 +36,8 @@ Beispiel für eine zulässige URL:
 
 Wenn nur einer dieser URL-Parameter nicht gesetzt ist oder einen ungültigen Wert hat, dann wird eine Exception geworfen.
 
+<br>
+
 Doku dieser REST-API mit [Swagger UI](https://swagger.io/tools/swagger-ui/): 
 
 https://mdecker-mobilecomputing.github.io/Java_RestAPI_BmiBerechnung/
